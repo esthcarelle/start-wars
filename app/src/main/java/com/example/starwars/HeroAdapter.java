@@ -2,6 +2,8 @@ package com.example.starwars;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,12 +18,13 @@ import com.bumptech.glide.Glide;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class HeroAdapter  extends RecyclerView.Adapter<HeroAdapter.HeroHolder> {
-   private ArrayList<Hero> mData;
+   private ArrayList<Datum> mData;
    private Context mActivity;
 
-    public HeroAdapter(ArrayList<Hero> mData, Context mActivity) {
+    public HeroAdapter(ArrayList<Datum> mData, Context mActivity) {
         this.mData = mData;
         this.mActivity = mActivity;
     }
@@ -34,16 +37,54 @@ public class HeroAdapter  extends RecyclerView.Adapter<HeroAdapter.HeroHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HeroHolder holder, int position) {
+    public void onBindViewHolder(@NonNull HeroHolder holder, final int position) {
 
-        Hero hero=mData.get(position);
+        Datum hero=mData.get(position);
 
         holder.heroName.setText(hero.getName());
-        holder.heroId.setText(hero.getId());
+
+        holder.heroId.setText(Integer.toString(hero.getId()));
         Glide.with(mActivity)
-                .load(hero.getImageUrl())
+                .load(hero.getImage())
                 .into(holder.heroImage);
+//        holder.setItemClickListener(new ItemClickListener() {
+//            @Override
+//            public void onItemClickListener(View view, int position) {
+//
+//
+//                String name=hero.getName();
+//                String price=models.get(position).getPrice();
+//
+//
+//
+//                Intent intent=new Intent(context, anotherActivity.class);
+//                intent.putExtra("Menu",name);
+//                intent.putExtra("price",price);
+//                intent.putExtra("imagez",bytes);
+//                context.startActivity(intent);
+//
+//            }
+//        });
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name=mData.get(position).getName();
+                String image=mData.get(position).getImage();
+                List<String> aff=mData.get(position).getAffiliations();
+
+
+                Intent intent=new Intent(mActivity,Details.class);
+                intent.putExtra("name",name);
+                intent.putExtra("image",image);
+                intent.putStringArrayListExtra("aff",(ArrayList<String>)aff);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                mActivity.startActivity(intent);
+
+            }
+        });
     }
+
 
     @Override
     public int getItemCount() {

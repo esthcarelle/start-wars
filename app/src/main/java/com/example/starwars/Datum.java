@@ -11,16 +11,16 @@ public class Datum implements Serializable
 
     @SerializedName("id")
     @Expose
-    private Integer id;
+    private int id;
     @SerializedName("name")
     @Expose
     private String name;
     @SerializedName("height")
     @Expose
-    private Integer height;
+    private int height;
     @SerializedName("mass")
     @Expose
-    private Integer mass;
+    private int mass;
     @SerializedName("gender")
     @Expose
     private String gender;
@@ -35,13 +35,13 @@ public class Datum implements Serializable
     private String image;
     @SerializedName("born")
     @Expose
-    private Integer born;
+    private int born;
     @SerializedName("bornLocation")
     @Expose
     private String bornLocation;
     @SerializedName("died")
     @Expose
-    private Integer died;
+    private int died;
     @SerializedName("diedLocation")
     @Expose
     private String diedLocation;
@@ -74,10 +74,10 @@ public class Datum implements Serializable
     private List<String> formerAffiliations = null;
     @SerializedName("dateCreated")
     @Expose
-    private Integer dateCreated;
+    private int dateCreated;
     @SerializedName("dateDestroyed")
     @Expose
-    private Integer dateDestroyed;
+    private int dateDestroyed;
     @SerializedName("destroyedLocation")
     @Expose
     private String destroyedLocation;
@@ -165,7 +165,7 @@ public class Datum implements Serializable
      * @param apprentices
      * @param dateDestroyed
      */
-    public Datum(Integer id, String name, Integer height, Integer mass, String gender, String homeworld, String wiki, String image, Integer born, String bornLocation, Integer died, String diedLocation, String species, String hairColor, String eyeColor, String skinColor, String cybernetics, List<String> affiliations, List<String> masters, List<String> apprentices, List<String> formerAffiliations, Integer dateCreated, Integer dateDestroyed, String destroyedLocation, String creator, String manufacturer, String model, String _class, String sensorColor, String platingColor, List<String> equipment, String productLine, String kajidic, List<String> era, String degree, String armament) {
+    public Datum(int id, String name, int height, int mass, String gender, String homeworld, String wiki, String image, int born, String bornLocation, int died, String diedLocation, String species, String hairColor, String eyeColor, String skinColor, String cybernetics, List<String> affiliations, List<String> masters, List<String> apprentices, List<String> formerAffiliations, int dateCreated, int dateDestroyed, String destroyedLocation, String creator, String manufacturer, String model, String _class, String sensorColor, String platingColor, List<String> equipment, String productLine, String kajidic, List<String> era, String degree, String armament) {
         super();
         this.id = id;
         this.name = name;
@@ -205,11 +205,11 @@ public class Datum implements Serializable
         this.armament = armament;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -221,19 +221,19 @@ public class Datum implements Serializable
         this.name = name;
     }
 
-    public Integer getHeight() {
+    public int getHeight() {
         return height;
     }
 
-    public void setHeight(Integer height) {
+    public void setHeight(int height) {
         this.height = height;
     }
 
-    public Integer getMass() {
+    public int getMass() {
         return mass;
     }
 
-    public void setMass(Integer mass) {
+    public void setMass(int mass) {
         this.mass = mass;
     }
 
@@ -269,11 +269,11 @@ public class Datum implements Serializable
         this.image = image;
     }
 
-    public Integer getBorn() {
+    public int getBorn() {
         return born;
     }
 
-    public void setBorn(Integer born) {
+    public void setBorn(int born) {
         this.born = born;
     }
 
@@ -285,11 +285,11 @@ public class Datum implements Serializable
         this.bornLocation = bornLocation;
     }
 
-    public Integer getDied() {
+    public int getDied() {
         return died;
     }
 
-    public void setDied(Integer died) {
+    public void setDied(int died) {
         this.died = died;
     }
 
@@ -373,19 +373,19 @@ public class Datum implements Serializable
         this.formerAffiliations = formerAffiliations;
     }
 
-    public Integer getDateCreated() {
+    public int getDateCreated() {
         return dateCreated;
     }
 
-    public void setDateCreated(Integer dateCreated) {
+    public void setDateCreated(int dateCreated) {
         this.dateCreated = dateCreated;
     }
 
-    public Integer getDateDestroyed() {
+    public int getDateDestroyed() {
         return dateDestroyed;
     }
 
-    public void setDateDestroyed(Integer dateDestroyed) {
+    public void setDateDestroyed(int dateDestroyed) {
         this.dateDestroyed = dateDestroyed;
     }
 
