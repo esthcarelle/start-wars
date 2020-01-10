@@ -4,42 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Details">
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:id="@+id/image1"/>
-    <TextView
+    tools:context=".SaveActivity">
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/name"
-        android:layout_below="@id/image1"/>
-    <TextView
+        android:hint="name"
+        android:id="@+id/namee"/>
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Affiliations"
-        android:layout_below="@id/name"
-        android:id="@+id/title"
-        android:textSize="20dp"/>
-    <TextView
-        android:layout_below="@id/title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/affiliations"/>
+        android:layout_below="@id/namee"
+        android:id="@+id/emaill"
+        android:hint="Email"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/save"
-
+        android:onClick="save"
         android:hint="Save"
-        android:layout_below="@id/affiliations"/>
+        android:layout_below="@id/emaill"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/list"
         android:hint="list"
-
+        android:onClick="retrieve"
         android:layout_below="@id/save"/>
-
+    <Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/list"
+        android:text="Clear"/>
 
 </RelativeLayout>

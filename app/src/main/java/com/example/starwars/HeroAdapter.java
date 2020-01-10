@@ -71,10 +71,12 @@ public class HeroAdapter  extends RecyclerView.Adapter<HeroAdapter.HeroHolder> {
             public void onClick(View v) {
                 String name=mData.get(position).getName();
                 String image=mData.get(position).getImage();
+                String id=Integer.toString(mData.get(position).getId());
                 List<String> aff=mData.get(position).getAffiliations();
 
 
                 Intent intent=new Intent(mActivity,Details.class);
+                intent.putExtra("id",id);
                 intent.putExtra("name",name);
                 intent.putExtra("image",image);
                 intent.putStringArrayListExtra("aff",(ArrayList<String>)aff);
