@@ -1,43 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="200dp"
+    android:layout_margin="12dp"
+    >
     <LinearLayout
+
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:adjustViewBounds="true"
-            android:id="@+id/heroImage"
-            android:scaleType="centerCrop"/>
-
-        <TextView
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:background="@drawable/create_card_edge"
+        android:gravity="center_horizontal">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/black"
+        android:padding="10dp">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/layoutImage">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:src="@mipmap/ic_launcher"
+                android:id="@+id/heroImage" />
+
+        </LinearLayout>
+
+
+
+        <TextView
             android:id="@+id/heroName"
-            android:layout_gravity="bottom"
-            android:layout_marginLeft="16dp"
-            android:layout_weight="1"
-            android:textColor="@color/black"
-            android:textSize="24dp"
-            android:text="Hero name"
-            android:textStyle="bold"/>
-
-        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/heroId"
-            android:layout_marginBottom="4dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="8dp"
-            android:text="Id"
-            android:textSize="14dp"/>
+            android:layout_weight="1"
+            android:layout_below="@id/layoutImage"
+            android:text="Hero namejgjgjhgjgjghjgjgjgjgjghjgjgj"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" />
 
 
+
+
+    </RelativeLayout>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

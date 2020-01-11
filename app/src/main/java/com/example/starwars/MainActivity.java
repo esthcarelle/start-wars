@@ -1,14 +1,20 @@
 package com.example.starwars;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.core.view.MenuItemCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -39,40 +45,49 @@ public class MainActivity extends AppCompatActivity {
 public RecyclerView recyclerView;
 public HeroAdapter mAdapter;
 public ArrayList<Datum> mList;
+
 public   String URL_DATA="https://awesome-star-wars-api.herokuapp.com/characters";
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        progressDialog=new ProgressDialog(this);
         FetchData pro=new FetchData();
         pro.execute();
         recyclerView=(RecyclerView)findViewById(R.id.recycler);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
         recyclerView.setHasFixedSize(true);
         mList=new ArrayList<>();
 
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.appbar,menu);
+        MenuItem menuItem = menu.findItem(R.id.app_bar_search);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
 
 
+                return true;
+            }
 
+            @Override
+            public boolean onQueryTextChange(String newText) {
 
-//        loadRecyclerViewData();
+                if (mAdapter != null){
+                    mAdapter.getFilter().filter(newText);
+                }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                return true;
+            }
+        });
+        return true;
     }
 
 
@@ -81,9 +96,32 @@ public   String URL_DATA="https://awesome-star-wars-api.herokuapp.com/characters
 
 
      public class FetchData extends AsyncTask<Void,Void,Void>{
+         public FetchData(ListActivity activity) {
+             this.activity = activity;
+
+         }
+         public  FetchData(){
+             dialog = new ProgressDialog(MainActivity.this);
+         }
+         /** progress dialog to show user that the backup is processing. */
+         private ProgressDialog dialog;
+         /** application context. */
+         private ListActivity activity;
+
+
+         @Override
+         protected void onPreExecute() {
+             super.onPreExecute();
+             this.dialog.setMessage("Take it easy and wait...wait...wait...");
+             this.dialog.show();
+         }
+
          @Override
          protected void onPostExecute(Void aVoid) {
              super.onPostExecute(aVoid);
+             if (dialog.isShowing()) {
+                 dialog.dismiss();
+             }
              mAdapter=new HeroAdapter(mList,getApplicationContext());
              recyclerView.setAdapter(mAdapter);
          }
@@ -236,8 +274,8 @@ public   String URL_DATA="https://awesome-star-wars-api.herokuapp.com/characters
                      hero1.setMass(o.getInt("mass"));
                      if(o.has("gender"))
                      hero1.setGender(o.getString("gender"));
-                     if(o.has("homeWorld"))
-                     hero1.setHomeworld(o.getString("homeWorld"));
+                     if(o.has("homeworld"))
+                     hero1.setHomeworld(o.getString("homeworld"));
                      if(o.has("wiki"))
                      hero1.setWiki(o.getString("wiki"));
                      if(o.has("image"))
@@ -285,12 +323,7 @@ public   String URL_DATA="https://awesome-star-wars-api.herokuapp.com/characters
                      hero1.setKajidic(o.getString("kajidic"));
                      hero1.setEra(era);
 
-
-
-
-
-
-
+                     progressDialog.dismiss();
                      mList.add(hero1);
 
                  }
