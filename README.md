@@ -1,11 +1,11 @@
 # Star Wars
 #### Star Wars, January 11st 2020
 #### By **Esther Carrelle**
-![](app/res/drawable/screen)
+![](STARWARS/app/src/main/res/drawable/screen)
 ![](app/res/drawable/screen1)
 ![](app/res/drawable/screen2)
 ![](app/res/drawable/screen3)
-![](app/res/drawable/screen5)
+![](app/src/main/res/drawable/screen5)
 
 
 
