@@ -1,11 +1,11 @@
 # Star Wars
 #### Star Wars, January 11st 2020
 #### By **Esther Carrelle**
-![](app/src/main/res/drawable/screen)
-![](app/src/main/res/drawable/screen1)
-![](app/src/main/res/drawable/screen2)
-![](app/src/main/res/drawable/screen3)
-![](app/src/main/res/drawable/screen5)
+![](app/res/drawable/screen)
+![](app/res/drawable/screen1)
+![](app/res/drawable/screen2)
+![](app/res/drawable/screen3)
+![](app/res/drawable/screen5)
 
 
 
@@ -32,6 +32,11 @@ The application allow users to do the following:
 3.search for a particular character name
 4.view details of each character
 3.delete a character saved locally
+
+## Technologies Used
+
+* Android(Java)
+* Star wars API
 
 
 
